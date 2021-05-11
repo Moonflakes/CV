@@ -17,18 +17,14 @@
 
         <p class="subheading font-weight-regular">
           For help and collaboration with other Vuetify developers,
-          <br>please join our online
-          <a
-            href="https://community.vuetifyjs.com"
-            target="_blank"
-          >Discord Community</a>
+          <br />please join our online
+          <a href="https://community.vuetifyjs.com" target="_blank"
+            >Discord Community</a
+          >
         </p>
       </v-col>
 
-      <v-col
-        class="mb-5"
-        cols="12"
-      >
+      <v-col class="mb-5" cols="12">
         <h2 class="headline font-weight-bold mb-3">
           What's next?
         </h2>
@@ -46,10 +42,7 @@
         </v-row>
       </v-col>
 
-      <v-col
-        class="mb-5"
-        cols="12"
-      >
+      <v-col class="mb-5" cols="12">
         <h2 class="headline font-weight-bold mb-3">
           Important Links
         </h2>
@@ -67,10 +60,7 @@
         </v-row>
       </v-col>
 
-      <v-col
-        class="mb-5"
-        cols="12"
-      >
+      <v-col class="mb-5" cols="12">
         <h2 class="headline font-weight-bold mb-3">
           Ecosystem
         </h2>
@@ -92,60 +82,92 @@
 </template>
 
 <script>
-  export default {
-    name: 'HelloWorld',
+export default {
+  name: "HelloWorld",
 
-    data: () => ({
-      ecosystem: [
-        {
-          text: 'vuetify-loader',
-          href: 'https://github.com/vuetifyjs/vuetify-loader',
-        },
-        {
-          text: 'github',
-          href: 'https://github.com/vuetifyjs/vuetify',
-        },
-        {
-          text: 'awesome-vuetify',
-          href: 'https://github.com/vuetifyjs/awesome-vuetify',
-        },
-      ],
-      importantLinks: [
-        {
-          text: 'Documentation',
-          href: 'https://vuetifyjs.com',
-        },
-        {
-          text: 'Chat',
-          href: 'https://community.vuetifyjs.com',
-        },
-        {
-          text: 'Made with Vuetify',
-          href: 'https://madewithvuejs.com/vuetify',
-        },
-        {
-          text: 'Twitter',
-          href: 'https://twitter.com/vuetifyjs',
-        },
-        {
-          text: 'Articles',
-          href: 'https://medium.com/vuetify',
-        },
-      ],
-      whatsNext: [
-        {
-          text: 'Explore components',
-          href: 'https://vuetifyjs.com/components/api-explorer',
-        },
-        {
-          text: 'Select a layout',
-          href: 'https://vuetifyjs.com/getting-started/pre-made-layouts',
-        },
-        {
-          text: 'Frequently Asked Questions',
-          href: 'https://vuetifyjs.com/getting-started/frequently-asked-questions',
-        },
-      ],
-    }),
-  }
+  data: () => ({
+    ecosystem: [
+      {
+        text: "vuetify-loader",
+        href: "https://github.com/vuetifyjs/vuetify-loader"
+      },
+      {
+        text: "github",
+        href: "https://github.com/vuetifyjs/vuetify"
+      },
+      {
+        text: "awesome-vuetify",
+        href: "https://github.com/vuetifyjs/awesome-vuetify"
+      }
+    ],
+    importantLinks: [
+      {
+        text: "Documentation",
+        href: "https://vuetifyjs.com"
+      },
+      {
+        text: "Chat",
+        href: "https://community.vuetifyjs.com"
+      },
+      {
+        text: "Made with Vuetify",
+        href: "https://madewithvuejs.com/vuetify"
+      },
+      {
+        text: "Twitter",
+        href: "https://twitter.com/vuetifyjs"
+      },
+      {
+        text: "Articles",
+        href: "https://medium.com/vuetify"
+      }
+    ],
+    whatsNext: [
+      {
+        text: "Explore components",
+        href: "https://vuetifyjs.com/components/api-explorer"
+      },
+      {
+        text: "Select a layout",
+        href: "https://vuetifyjs.com/getting-started/pre-made-layouts"
+      },
+      {
+        text: "Frequently Asked Questions",
+        href: "https://vuetifyjs.com/getting-started/frequently-asked-questions"
+      }
+    ]
+  })
+};
 </script>
+<style>
+.container {
+  background: linear-gradient(101.22deg, rgba(255, 255, 255, 0.1) 0%, rgba(255, 255, 255, 0.05) 100%);
+  backdrop-filter: blur(60px);
+  border-radius: 84px;
+   margin-top: 50vh; /* poussé de la moitié de hauteur de viewport */
+  transform: translateY(-50%);
+  /* border: 4px solid;
+  border-image: linear-gradient(101.22deg, rgba(255, 255, 255, 0.6) 0%, rgba(255, 255, 255, 0.0) 100%) 300; */
+}
+
+.container::after {
+  content: "";
+  width: 100%;
+  height: 673px;
+  padding: 1px;
+  position: absolute;
+  top: 0;
+  left: 0;
+  right: 0;
+  bottom: 0;
+  border-radius: 84px;
+  background: linear-gradient(
+    101.22deg,
+    rgba(255, 255, 255, 0.6) 0%,
+    rgba(255, 255, 255, 0) 100%
+  );
+  -webkit-mask: linear-gradient(#fff 0 0) content-box, linear-gradient(#fff 0 0);
+  -webkit-mask-composite: destination-out;
+  mask-composite: exclude;
+}
+</style>
