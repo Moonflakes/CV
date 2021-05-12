@@ -1,83 +1,51 @@
 <template>
   <v-container>
-    <v-row class="text-center">
-      <v-col cols="12">
-        <v-img
-          :src="require('../assets/logo.svg')"
-          class="my-3"
-          contain
-          height="200"
-        />
-      </v-col>
+    <v-card
+      elevation="0"
+      width="256"
+      color="transparent"
+      height="673px"
+      class="contai"
+    >
+      <v-navigation-drawer
+        permanent
+      >
+      <template v-slot:prepend>
+          <v-list-item>
+            <v-list-item-avatar size="100">
+              <img src="./../assets/Avatar mt.png" />
+            </v-list-item-avatar>
+          </v-list-item>
+          <v-list-item two-line class="titleCV">
+            <v-list-item-content>
+              <v-list-item-title>Margot THIERY</v-list-item-title>
+              <v-list-item-subtitle>Développeuse Frontend</v-list-item-subtitle>
+            </v-list-item-content>
+          </v-list-item>
+        </template>
 
-      <v-col class="mb-4">
-        <h1 class="display-2 font-weight-bold mb-3">
-          Welcome to Vuetify
-        </h1>
-
-        <p class="subheading font-weight-regular">
-          For help and collaboration with other Vuetify developers,
-          <br />please join our online
-          <a href="https://community.vuetifyjs.com" target="_blank"
-            >Discord Community</a
+        <v-divider></v-divider>
+        <v-list
+          dense
+          rounded
+        >
+          <v-list-item
+            v-for="item in items"
+            :key="item.title"
+            class="testlit"
+            link
           >
-        </p>
-      </v-col>
+            <v-list-item-icon>
+              <v-img :src="item.icon" width="24"></v-img>
+            </v-list-item-icon>
 
-      <v-col class="mb-5" cols="12">
-        <h2 class="headline font-weight-bold mb-3">
-          What's next?
-        </h2>
-
-        <v-row justify="center">
-          <a
-            v-for="(next, i) in whatsNext"
-            :key="i"
-            :href="next.href"
-            class="subheading mx-3"
-            target="_blank"
-          >
-            {{ next.text }}
-          </a>
-        </v-row>
-      </v-col>
-
-      <v-col class="mb-5" cols="12">
-        <h2 class="headline font-weight-bold mb-3">
-          Important Links
-        </h2>
-
-        <v-row justify="center">
-          <a
-            v-for="(link, i) in importantLinks"
-            :key="i"
-            :href="link.href"
-            class="subheading mx-3"
-            target="_blank"
-          >
-            {{ link.text }}
-          </a>
-        </v-row>
-      </v-col>
-
-      <v-col class="mb-5" cols="12">
-        <h2 class="headline font-weight-bold mb-3">
-          Ecosystem
-        </h2>
-
-        <v-row justify="center">
-          <a
-            v-for="(eco, i) in ecosystem"
-            :key="i"
-            :href="eco.href"
-            class="subheading mx-3"
-            target="_blank"
-          >
-            {{ eco.text }}
-          </a>
-        </v-row>
-      </v-col>
-    </v-row>
+            <v-list-item-content class="textTitle">
+              <v-list-item-title>{{ item.title }}</v-list-item-title>
+            </v-list-item-content>
+          </v-list-item>
+        </v-list>
+      </v-navigation-drawer>
+    </v-card>
   </v-container>
 </template>
 
@@ -86,72 +54,31 @@ export default {
   name: "HelloWorld",
 
   data: () => ({
-    ecosystem: [
-      {
-        text: "vuetify-loader",
-        href: "https://github.com/vuetifyjs/vuetify-loader"
-      },
-      {
-        text: "github",
-        href: "https://github.com/vuetifyjs/vuetify"
-      },
-      {
-        text: "awesome-vuetify",
-        href: "https://github.com/vuetifyjs/awesome-vuetify"
-      }
-    ],
-    importantLinks: [
-      {
-        text: "Documentation",
-        href: "https://vuetifyjs.com"
-      },
-      {
-        text: "Chat",
-        href: "https://community.vuetifyjs.com"
-      },
-      {
-        text: "Made with Vuetify",
-        href: "https://madewithvuejs.com/vuetify"
-      },
-      {
-        text: "Twitter",
-        href: "https://twitter.com/vuetifyjs"
-      },
-      {
-        text: "Articles",
-        href: "https://medium.com/vuetify"
-      }
-    ],
-    whatsNext: [
-      {
-        text: "Explore components",
-        href: "https://vuetifyjs.com/components/api-explorer"
-      },
-      {
-        text: "Select a layout",
-        href: "https://vuetifyjs.com/getting-started/pre-made-layouts"
-      },
-      {
-        text: "Frequently Asked Questions",
-        href: "https://vuetifyjs.com/getting-started/frequently-asked-questions"
-      }
+    items: [
+      { title: "Éducation", icon: require('./../assets/education.png')},
+      { title: "Expériences", icon: require("./../assets/experiences.png") },
+      { title: "Jeux", icon: require("./../assets/games.png") }
     ]
   })
 };
 </script>
 <style>
 .container {
-  background: linear-gradient(101.22deg, rgba(255, 255, 255, 0.1) 0%, rgba(255, 255, 255, 0.05) 100%);
-  backdrop-filter: blur(60px);
+  background: linear-gradient(
+    101.22deg,
+    rgba(255, 255, 255, 0.1) 0%,
+    rgba(255, 255, 255, 0.05) 100%
+  );
+  backdrop-filter: blur(10px);
   border-radius: 84px;
-   margin-top: 50vh; /* poussé de la moitié de hauteur de viewport */
+  margin-top: 50vh; /* poussé de la moitié de hauteur de viewport */
   transform: translateY(-50%);
-  /* border: 4px solid;
-  border-image: linear-gradient(101.22deg, rgba(255, 255, 255, 0.6) 0%, rgba(255, 255, 255, 0.0) 100%) 300; */
+  padding: unset !important;
 }
 
 .container::after {
   content: "";
+  z-index: -3;
   width: 100%;
   height: 673px;
   padding: 1px;
@@ -169,5 +96,36 @@ export default {
   -webkit-mask: linear-gradient(#fff 0 0) content-box, linear-gradient(#fff 0 0);
   -webkit-mask-composite: destination-out;
   mask-composite: exclude;
+}
+.v-sheet.v-card {
+  border-radius: 84px 0px 0px 84px !important;
+}
+.v-navigation-drawer {
+  background: linear-gradient(
+    101.22deg,
+    rgba(255, 255, 255, 0.8) 0%,
+    rgba(255, 255, 255, 0.2) 100%
+  ) !important;
+}
+aside {
+  width: 230px !important;
+}
+.v-list-item {
+  justify-content: center;
+}
+.titleCV {
+  text-align: center;
+}
+.v-application--is-ltr .v-list-item__avatar:first-child {
+  margin-top: 20px;
+}
+.textTitle, .v-list-item__title {
+  color: hsl(242deg 52% 41% / 42%) !important;
+}
+.v-list-item__subtitle{
+  color: #cac9e6 !important;
+}
+.contai .theme--light.v-list-item:not(.v-list-item--active):not(.v-list-item--disabled) {
+  color: #625df5 !important;
 }
 </style>

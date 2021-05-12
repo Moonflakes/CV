@@ -59,7 +59,6 @@ export default {
   position: absolute;
   top: 6%;
   right: 6%;
-  /* background: linear-gradient(180deg, #e3d1ff -2.56%, #8292fb 94.98%); */
   filter: blur(40px);
 }
 </style>
