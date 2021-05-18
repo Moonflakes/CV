@@ -58,12 +58,18 @@
     <v-main>
       <HelloWorld />
     </v-main>
+
+    <v-footer padless app>
+      <v-col class="text-center" cols="12">
+        {{ currentDate() }} — Built with <strong>Vuetify</strong>
+      </v-col>
+    </v-footer>
   </v-app>
 </template>
 
 <script>
 import HelloWorld from "./components/HelloWorld";
-import PageLoader from './components/PageLoader.vue';
+import PageLoader from "./components/PageLoader.vue";
 
 export default {
   name: "App",
@@ -72,13 +78,26 @@ export default {
     HelloWorld,
     PageLoader
   },
+  methods: {
+    currentDate() {
+      var today = new Date();
+      var dd = String(today.getDate()).padStart(2, "0");
+      var mm = String(today.getMonth() + 1).padStart(2, "0");
+      var yyyy = today.getFullYear();
 
-  data: () => ({
-    //
-  })
+      today = mm + "/" + dd + "/" + yyyy;
+      return today
+    }
+  }
 };
 </script>
 <style>
+/* html,
+body,
+.v-application,
+.v-main {
+  height: 100% !important;
+} */
 .v-application {
   background: linear-gradient(108.83deg, #dee3fe 0%, #566bf4 100%) !important;
 }
@@ -98,5 +117,8 @@ export default {
   width: 600px;
   right: -8%;
   top: -76%;
+}
+.v-footer {
+  background: transparent !important;
 }
 </style>
