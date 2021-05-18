@@ -1,102 +1,21 @@
 <template>
   <v-container class="support">
-    <v-card
-      elevation="0"
-      width="256"
-      color="transparent"
-      height="673px"
-      class="nav-support"
-    >
-      <v-navigation-drawer permanent>
-        <template v-slot:prepend>
-          <v-list-item>
-            <v-list-item-avatar size="100">
-              <img src="./../assets/Avatar mt.png" />
-            </v-list-item-avatar>
-          </v-list-item>
-          <v-list-item two-line class="titleCV">
-            <v-list-item-content>
-              <v-list-item-title>Margot THIERY</v-list-item-title>
-              <v-list-item-subtitle>Développeuse Frontend</v-list-item-subtitle>
-            </v-list-item-content>
-          </v-list-item>
-        </template>
-
-        <v-divider></v-divider>
-        <v-list dense rounded>
-          <v-list-item
-            v-for="item in items"
-            :key="item.title"
-            class="testlit"
-            link
-          >
-            <v-list-item-icon>
-              <v-img :src="item.icon" width="24"></v-img>
-            </v-list-item-icon>
-
-            <v-list-item-content class="textTitle">
-              <v-list-item-title>{{ item.title }}</v-list-item-title>
-            </v-list-item-content>
-          </v-list-item>
-        </v-list>
-      </v-navigation-drawer>
-    </v-card>
-    <v-card color="transparent" class="content-support">
-      <v-container class="pa-10">
-        <v-card-text class="text-h4 mb-2 white--text">Éducation</v-card-text>
-        <v-row dense>
-          <v-col v-for="(item, i) in education" :key="i" cols="12" class="mb-3">
-            <v-card class="box-content px-6 py-2" transition="scroll-y-transition">
-              <v-list-item>
-                <v-list-item-title class="text-h6 pt-0">
-                  {{ item.school }}
-                </v-list-item-title>
-                <v-list-item-subtitle
-                  >({{ item.yearFrom }} - {{ item.yearTo }})</v-list-item-subtitle
-                ></v-list-item>
-                <v-chip-group column>
-                  <v-chip
-                    :ripple="false"
-                    color="deep-purple accent-4"
-                    text-color="white"
-                    v-for="(skill, index) in item.skills"
-                    :key="index"
-                    v-text="skill"
-                  ></v-chip>
-                </v-chip-group>
-            </v-card>
-          </v-col>
-        </v-row>
-      </v-container>
-    </v-card>
+    <Menu />
+    <Board />
   </v-container>
 </template>
 
 <script>
+import Menu from "./Menu";
+import Board from "./Board";
+
 export default {
   name: "HelloWorld",
 
-  data: () => ({
-    items: [
-      { title: "Éducation", icon: require("./../assets/education.png") },
-      { title: "Expériences", icon: require("./../assets/experiences.png") },
-      { title: "Jeux", icon: require("./../assets/games.png") }
-    ],
-    education: [
-      {
-        yearFrom: "2012",
-        yearTo: "2015",
-        school: "Hero Academy",
-        skills: ["Web Development", "Database management", "..."]
-      },
-      {
-        yearFrom: "2012",
-        yearTo: "2015",
-        school: "Hero Academy",
-        skills: ["Web Development", "Database management", "..."]
-      }
-    ]
-  })
+  components: {
+    Menu,
+    Board
+  }
 };
 </script>
 <style>
@@ -173,6 +92,7 @@ aside {
 .content-support {
   border-radius: 0px 84px 84px 0px !important;
   box-shadow: unset !important;
+  width: 100%;
 }
 .box-content {
   border-radius: 84px !important;
