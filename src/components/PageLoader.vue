@@ -1,9 +1,9 @@
 <template>
   <div class="page-loader" v-if="!isloaded">
-    <div class="cube"></div>
-    <div class="cube"></div>
-    <div class="cube"></div>
-    <div class="cube"></div>
+    <div class="circle"></div>
+    <div class="circle"></div>
+    <div class="circle"></div>
+    <div class="circle"></div>
   </div>
 </template>
 
@@ -42,10 +42,11 @@ $colors: #625df5, #8e9dfb, #b4bdf8, #e5e9fa;
   z-index: 999;
 }
 // -----------------------------------------------------
-.cube {
+.circle {
   width: 40px;
   height: 40px;
   margin-right: 10px;
+  border-radius: 100%;
   @for $i from 1 through length($colors) {
     &:nth-child(#{$i}) {
       background-color: nth($colors, $i);
