@@ -59,7 +59,7 @@
       <HelloWorld />
     </v-main>
 
-    <v-footer padless app>
+    <v-footer padless app class="white--text">
       <v-col class="text-center" cols="12">
         {{ currentDate() }} — Built with <strong>Vuetify</strong>
       </v-col>

@@ -38,8 +38,9 @@ $colors: #625df5, #8e9dfb, #b4bdf8, #e5e9fa;
   left: 0;
   width: 100vw;
   height: 100vh;
-  background-color: #8e8af1;
+  // background-color: #8e8af1;
   z-index: 999;
+  animation: fade 5s;
 }
 // -----------------------------------------------------
 .circle {
@@ -74,6 +75,14 @@ $colors: #625df5, #8e9dfb, #b4bdf8, #e5e9fa;
   }
   50% {
     transform: translateX(0);
+  }
+}
+@keyframes fade {
+  0% {
+    background-color: #8e8af1;
+  }
+  100% {
+    background-color: #8e8af100;
   }
 }
 </style>

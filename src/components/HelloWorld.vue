@@ -89,21 +89,4 @@ aside {
   .theme--light.v-list-item:not(.v-list-item--active):not(.v-list-item--disabled) {
   color: #625df5 !important;
 }
-.content-support {
-  border-radius: 0px 84px 84px 0px !important;
-  box-shadow: unset !important;
-  width: 100%;
-}
-.box-content {
-  border-radius: 84px !important;
-  background: linear-gradient(
-    101.22deg,
-    rgba(255, 255, 255, 0.808) 0%,
-    rgba(255, 255, 255, 0.61) 100%
-  ) !important;
-  box-shadow: 5px 5px 10px -2px rgb(0 0 0 / 20%) !important;
-}
-.text-h6 {
-  font-weight: unset !important;
-}
 </style>
