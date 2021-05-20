@@ -1,21 +1,52 @@
 <template>
-  <v-container class="support">
-    <Menu />
-    <Board />
+  <v-container class="support mt-10">
+    <Menu @update-board="updateBoard" />
+    <education v-if="boardStatus === 'Éducation'" :education="education" />
+    <experience v-if="boardStatus === 'Expérience'" :experience="experience" />
   </v-container>
 </template>
 
 <script>
 import Menu from "./Menu";
-import Board from "./Board";
+import axios from "axios";
+import Education from './Education.vue';
+import Experience from './Experience.vue';
 
 export default {
   name: "HelloWorld",
 
   components: {
     Menu,
-    Board
-  }
+    Education,
+    Experience
+  },
+  data() {
+    return {
+      education: null,
+      experience: null,
+      boardStatus: null
+    };
+  },
+  mounted() {
+    axios
+      .get("http://localhost:3600/education")
+      .then(response => this.education = response.data)
+      .catch(error => console.log(error));
+    axios
+      .get("http://localhost:3600/experience")
+      .then(response => (this.experience = response.data))
+      .catch(error => console.log(error));
+  },
+  // computed: {
+  //   boardStatus() {
+  //     return this.data 
+  //   }
+  // },
+  methods: {
+    updateBoard(e) {
+      this.boardStatus = e
+    }
+  },
 };
 </script>
 <style>
@@ -27,17 +58,17 @@ export default {
   );
   backdrop-filter: blur(10px);
   border-radius: 84px;
-  margin-top: 50vh; /* poussé de la moitié de hauteur de viewport */
-  transform: translateY(-50%);
+  /* margin-top: 50vh;  */
+  /* transform: translateY(-50%); */
   padding: unset !important;
   display: flex;
 }
 
-.support::after {
+.support::after { 
   content: "";
   z-index: -3;
   width: 100%;
-  height: 673px;
+  height: auto;
   padding: 1px;
   position: absolute;
   top: 0;
@@ -82,8 +113,9 @@ aside {
   color: #36329f6b !important;
 }
 .v-list-item__subtitle,
-.v-card__subtitle {
-  color: #cac9e6 !important;
+.v-card__subtitle, 
+.text-body-2 {
+  color: #bdbce5 !important;
 }
 .nav-support
   .theme--light.v-list-item:not(.v-list-item--active):not(.v-list-item--disabled) {

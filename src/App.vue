@@ -29,20 +29,20 @@
     </svg>
     <svg
       class="round"
-      width="2108"
-      height="2108"
-      viewBox="0 0 2108 2108"
+      width="600"
+      height="600"
+      viewBox="0 0 600 600"
       fill="none"
       xmlns="http://www.w3.org/2000/svg"
     >
-      <circle cx="1054" cy="1054" r="1054" fill="url(#paint0_linear)" />
+      <circle cx="300" cy="300" r="300" fill="url(#paint0_linear)" />
       <defs>
         <linearGradient
           id="paint0_linear"
-          x1="1973.78"
-          y1="268.076"
-          x2="490.934"
-          y2="2167.57"
+          x1="561.798"
+          y1="76.3023"
+          x2="139.734"
+          y2="616.956"
           gradientUnits="userSpaceOnUse"
         >
           <stop stop-color="#DEE3FE" />
@@ -86,7 +86,7 @@ export default {
       var yyyy = today.getFullYear();
 
       today = mm + "/" + dd + "/" + yyyy;
-      return today
+      return today;
     }
   }
 };
@@ -116,7 +116,7 @@ body,
   position: absolute;
   width: 600px;
   right: -8%;
-  top: -76%;
+  top: -10%;
 }
 .v-footer {
   background: transparent !important;

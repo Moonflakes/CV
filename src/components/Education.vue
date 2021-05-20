@@ -37,13 +37,16 @@
       <sequential-entrance animation="animate__animated animate__fadeInUp">
         <v-col v-for="(item, i) in education" :key="i" class="mb-3">
           <v-card class="box-content px-6 py-2">
-            <v-list-item>
-              <v-list-item-title class="text-h6 pt-0">
+            <v-card-title class="text-h5 pb-0">
+              {{ item.degree }}
+            </v-card-title>
+            <div class="d-flex flex-row">
+              <v-card-title class="text-h6 pt-0">
                 {{ item.school }}
-              </v-list-item-title>
-              <v-list-item-subtitle
-                >({{ item.yearFrom }} - {{ item.yearTo }})</v-list-item-subtitle
-              ></v-list-item
+              </v-card-title>
+              <v-card-title class="text-body-2 pt-0 "
+                >({{ item.yearFrom }} - {{ item.yearTo }})</v-card-title
+              ></div
             >
             <v-chip-group column class="px-4">
               <v-chip
@@ -64,24 +67,15 @@
 
 <script>
 export default {
-  name: "Board",
+  name: "Education",
+  props: {
+    education: {
+      type: Array,
+      default: null
+    }
+  },
   data() {
-    return {
-      education: [
-        {
-          yearFrom: "2012",
-          yearTo: "2015",
-          school: "Hero Academy",
-          skills: ["Web Development", "Database management", "..."]
-        },
-        {
-          yearFrom: "2012",
-          yearTo: "2015",
-          school: "Hero Academy",
-          skills: ["Web Development", "Database management", "..."]
-        }
-      ]
-    };
+    return {};
   }
 };
 </script>
@@ -109,6 +103,9 @@ export default {
   backdrop-filter: blur(10px);
 }
 .text-h6 {
-  font-weight: unset !important;
+  font-weight: 900 !important;
+}
+.text-h5 {
+  font-weight: 300 !important;
 }
 </style>

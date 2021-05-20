@@ -3,7 +3,7 @@
     elevation="0"
     width="256"
     color="transparent"
-    height="673px"
+    height="auto"
     class="nav-support"
   >
     <v-navigation-drawer permanent>
@@ -28,6 +28,7 @@
           :key="item.title"
           class="testlit"
           link
+          @click="atClick(item.title)"
         >
           <v-list-item-icon>
             <v-img :src="item.icon" width="24"></v-img>
@@ -49,11 +50,16 @@ export default {
     return {
       items: [
         { title: "Éducation", icon: require("./../assets/education.png") },
-        { title: "Expériences", icon: require("./../assets/experiences.png") },
+        { title: "Expérience", icon: require("./../assets/experiences.png") },
         { title: "Jeux", icon: require("./../assets/games.png") }
       ]
     };
-  }
+  },
+  methods: {
+    atClick(e) {
+      this.$emit('update-board', e)
+    }
+  },
 };
 </script>
 
