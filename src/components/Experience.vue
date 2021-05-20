@@ -63,6 +63,37 @@
               :key="index"
               >{{ description }}</v-card-text
             >
+            <v-card>
+              <v-toolbar color="indigo" dark>
+                <v-toolbar-title>Outils</v-toolbar-title>
+              </v-toolbar>
+              <v-container>
+                <v-row dense>
+                  <v-col
+                    v-for="(tool, index) in item.tools"
+                    :key="index"
+                    :cols="calCols(tool)"
+                  >
+                    <v-card>
+                      <v-chip-group column class="px-4">
+                        <v-chip
+                          :ripple="false"
+                          color="#8e9dfb"
+                          text-color="white"
+                          v-for="(specificTool, index) in tool"
+                          :key="index"
+                          v-text="specificTool"
+                        ></v-chip>
+                      </v-chip-group>
+                      <v-card-title
+                        class="text-button pt-0"
+                        v-text="index"
+                      ></v-card-title>
+                    </v-card>
+                  </v-col>
+                </v-row>
+              </v-container>
+            </v-card>
           </v-card>
         </v-col>
       </sequential-entrance>
@@ -80,7 +111,31 @@ export default {
     }
   },
   data() {
-    return {};
+    return {
+      cards: [
+        {
+          title: "Pre-fab homes",
+          src: "https://cdn.vuetifyjs.com/images/cards/house.jpg",
+          flex: 12
+        },
+        {
+          title: "Favorite road trips",
+          src: "https://cdn.vuetifyjs.com/images/cards/road.jpg",
+          flex: 6
+        },
+        {
+          title: "Best airlines",
+          src: "https://cdn.vuetifyjs.com/images/cards/plane.jpg",
+          flex: 6
+        }
+      ]
+    };
+  },
+  methods: {
+    calCols(tool) {
+      if (tool.length >= 3) return 12;
+      return 6;
+    }
   }
 };
 </script>
